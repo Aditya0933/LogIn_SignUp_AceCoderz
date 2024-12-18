@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #673ab7;
+
+}
+
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+    background-color: #000;
+}
+
+.form h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.form input {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.submit-btn {
+    background-color: #673ab7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:hover {
+    background-color: #512da8;
+}
+
+.link-btn {
+    background: none;
+    color: #ff9800;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.link-btn:hover {
+    text-decoration: underline;
+}
+
+.company-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #673ab7;
+    z-index: 1;
+    border-radius: 50px;
+    transform: translateX(0%);
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.password-toggle-btn i {
+    font-size: 20px;
+}
+
+.password-toggle-btn:hover i {
+    color: #000;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    text-align: center;
+    display: none;
+}
+
+.popup.success {
+    border-left: 5px solid green;
+}
+
+.popup.error {
+    border-left: 5px solid red;
+}
+
+.popup button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+.mobile-company-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 6% 0%;
+    background-color: #673ab7;
+    border-radius: 50px 50px 0px 0px;
+    margin-bottom: 20px;
+}
+
+.mobile-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #673ab7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.mobile-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.mobile-sign-in {
+    display: block;
+}
+
+.mobile-sign-up {
+    display: none;
+}
+
+.mobile-form h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.mobile-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.mobile-submit-btn {
+    background-color: #512da8;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-submit-btn:hover {
+    background-color: #512da8;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
+}
+
+
+.mobile-submit-btn:hover {
+    background-color: #512da8;
+}
+
+.mobile-link-btn {
+    background: none;
+    color: #ff9800;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.mobile-link-btn:hover {
+    text-decoration: underline;
+}
+
+.mobile-password-container {
+    position: relative;
+    width: 100%;
+}
+
+.mobile-password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.mobile-password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.mobile-password-toggle-btn i {
+    font-size: 20px;
+}
+
+.mobile-password-toggle-btn:hover i {
+    color: #000;
+}
+
+@media (max-width: 767px) {
+    .mobile-sign-in {
+        display: block;
+    }
+
+    .mobile-sign-up {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 4%;
+    }
+}
+
+.sign-in-up-btn-con {
+    display: flex;
+    gap: 10px;
+}
+
+.logo-container-mobile {
+    background-color: #673ab7;
+    margin: 0% auto 5%;
+    padding: 5% 0;
+    border-radius: 40px;
+    display: none;
+}
+
+.logo-img-container-mobile {
+    text-align: center;
+}
+
+#switch-to-signup-mobile {
+    display: none;
+}
+
+#switch-to-signin-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 800px;
+    }
+
+    .logo-container-mobile {
+        display: block;
+    }
+
+
+    .form {
+        display: block;
+        background-color: #673ab7;
+    }
+
+
+    .form input {
+        max-width: 100%;
+        background-color: #fff;
+        color: #000;
+    }
+
+    #switch-to-signup {
+        display: none;
+    }
+
+    #switch-to-signin {
+        display: none;
+    }
+
+    #switch-to-signup-mobile {
+        display: block;
+    }
+
+    #switch-to-signin-mobile {
+        display: block;
+    }
+
+
+    .company-overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+    }
+
+    .sign-in {
+        display: none;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .sign-up {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.transformXZ {
+    transform: translateX(0%);
+}
+
+.transformXH {
+    transform: translateX(100%);
+}
